@@ -1,7 +1,7 @@
 ---
 applications:
-- name: spring-music
+- name: pivotal-music-backend
   memory: 1G
-  random-route: true
-  path: build/libs/spring-music.jar
+  path: build/libs/pivotal-music-backend.jar
+  host: pivmusic-svr
 

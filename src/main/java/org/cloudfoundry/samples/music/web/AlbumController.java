@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 @RestController
@@ -38,14 +40,14 @@ public class AlbumController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Album getById(@PathVariable String id) {
+    public Optional<Album> getById(@PathVariable String id) {
         logger.info("Getting album " + id);
-        return repository.findOne(id);
+        return repository.findById(id);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deleteById(@PathVariable String id) {
         logger.info("Deleting album " + id);
-        repository.delete(id);
+        repository.deleteById(id);
     }
 }
